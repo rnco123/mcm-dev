@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { Loader2 } from "lucide-react";
 
-function Login({ searchParams }: { searchParams: { error_message: string } }) {
+function Login() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -15,9 +15,9 @@ function Login({ searchParams }: { searchParams: { error_message: string } }) {
     event.preventDefault();
     setLoading(true);
 
-    await login(new FormData(event.currentTarget));
-
-    setLoading(false);
+   const response =  await login(new FormData(event.currentTarget));
+   console.log("RESPONSE FROM BACKEND ->",response) 
+   setLoading(false);
   };
 
   return (

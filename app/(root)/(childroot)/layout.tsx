@@ -2,7 +2,6 @@
 import AccessDenied from "@/components/AccessDenied";
 import withAuthorization from "@/hoc/withAuthorization";
 
-
 function Layout({
 	children,
 	isAllowed

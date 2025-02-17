@@ -1,9 +1,6 @@
 import RootLayoutComponent from "@/components/RootLayoutComponent";
 import { ActiveTabProvider, AuthProvider, LocationProvider } from "@/context";
 
-
-
-
 export default function layout({
 	children,
 }: {
