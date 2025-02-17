@@ -68,11 +68,11 @@ function Login({ searchParams }: { searchParams: { error_message: string } }) {
                 )}
               </Button>
 
-              {searchParams?.error_message && (
+              {/* {searchParams?.error_message && (
                 <p className="mt-4 p-4 bg-red-600/10 w-full rounded-xl text-red-600 text-foreground border-[1px] border-red-600/25">
                   {searchParams.error_message}
                 </p>
-              )}
+              )} */}
             </form>
           </CardContent>
         </Card>

@@ -5,9 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ThemeProvider } from "next-themes";
 
-
 const inter = Inter({ subsets: ['latin'] })
-
 
 export const metadata: Metadata = {
   title: "MyClinic MD",
@@ -23,7 +21,6 @@ export default function RootLayout({
     <html lang="en">
       <ThemeProvider>
       <body className={inter.className}>{children}
-      
       <ToastContainer
       position="top-center"
       autoClose={5000}
