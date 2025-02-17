@@ -15,7 +15,6 @@ function Login({ searchParams }: { searchParams: { error_message: string } }) {
     event.preventDefault();
     setLoading(true);
 
-    // Wait for the server action to process the form submission
     await login(new FormData(event.currentTarget));
 
     setLoading(false);

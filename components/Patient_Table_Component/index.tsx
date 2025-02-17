@@ -48,17 +48,34 @@ const Patient_Table_Component: FC<Props> = ({ renderType = 'all' }) => {
   }
 
   const fetch_handle = async (locationid: number) => {
-    setLoading(true)
-    // @ts-ignore
-    const fetched_data: any = await fetch_content_service({ table: 'allpatients', language: '', matchCase: [queries[renderType], { key: 'locationid', value: locationid }] });
-    setDataList(fetched_data)
-    setAllData(fetched_data)
-    setLoading(false)
-  }
+    setLoading(true);
+    try {
+      const fetched_data: any = await fetch_content_service({ 
+        table: 'allpatients', 
+        language: '', 
+        matchCase: [queries[renderType] as any, { key: 'locationid', value: locationid }]
+      });
+  
+      if (!Array.isArray(fetched_data)) {
+        console.error("Fetched data is not an array:", fetched_data);
+        setDataList([]);
+        setAllData([]);
+      } else {
+        setDataList(fetched_data);
+        setAllData(fetched_data);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setDataList([]);
+      setAllData([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     fetch_handle(selectedLocation?.id || 0)
-  }, [, selectedLocation])
+  }, [selectedLocation])
 
   const sortHandle = (column: 'name' | 'id' | 'date') => {
     console.log(column)

@@ -23,8 +23,6 @@ const withAuthorization = (
 
     const {userRole, permissions} = useContext(AuthContext);
 
-
-
     useEffect(() => {
       (() => {
         if (userRole === 'super admin') {
